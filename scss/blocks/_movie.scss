@@ -1,0 +1,115 @@
+.movie__item {
+    width: 100%;
+    max-width: 320px;
+    height:427px;
+    border: 2px solid #000;
+    background-color: #080312;
+    transform: scale(1);
+    transition: all .5s ease-in-out;
+}
+
+.movie__item:hover {
+    transform: scale(1.01);
+}
+
+.movie__cover {
+    width: 100%;
+    max-width: 356px;
+    
+}
+
+.movies__list .bookmark__delete {
+    display: none;
+}
+
+.lists .bookmark__delete {
+    position: absolute;
+    top: 0;
+    right: -72px;
+}
+
+.bookmarkButton {
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
+    background-image: url("../images/bookmark3.png");
+    background-size: 45px 45px;
+    border: none;
+
+}
+
+
+.movie__rating::before{
+    @include site-button(20px, 20px, url("../images/icons8-star-48.png"));
+}
+
+.movie__time::before{
+    @include site-button(20px, 20px, url("../images/icons8-calendar-48.png"));
+    margin-top: 3px;
+    
+}
+
+
+.movie__duration::before{
+    @include site-button(20px, 20px, url("../images/icons8-clock.svg"));
+    margin-top: 3px;
+}
+
+.movie__btn {
+    @include tags(#ffff00);
+    color: #000;
+    &:hover {
+        background-color: #000 !important;
+        color: #ffff00 !important;
+    }
+}
+
+.tags{
+    @include tags(#000);
+    &:hover {
+        opacity: .7;
+    }
+
+}
+
+.movie__info::before{
+    @include site-button(20px, 20px, url("../images/info.png"));
+}
+
+.modal-dialog{
+    width: 100%;
+    max-width: 837px !important;
+}
+
+.modal-content{
+    background-color: #201223 !important;
+}
+
+
+.movie__link-imdb::after {
+    @include site-button(18px, 18px, url("../images/imdb-link.png"));
+    margin-right: 0;
+    margin-left: 11px;
+}
+
+
+
+.skeleton-cards{
+    position: absolute;
+    top: -103px;
+    left: 0;
+    z-index: 10;
+    width: 100% !important;
+    max-width: 364px !important;
+    height:427px !important;
+    margin-top: 100px;
+    background-color: #534d60 !important;
+}
+
+.card-img-top {
+    padding: 110px;
+}
+
+.modal-skeleton-left {
+    width: 50% !important;
+}

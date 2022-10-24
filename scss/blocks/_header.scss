@@ -1,0 +1,28 @@
+
+.header__title {
+    font-size: 25px;
+    line-height: 30px;
+    color: #ffff00;
+}
+
+.header__form {
+    width: 100%;
+    max-width: 807px;
+}
+
+.form-control {
+    color: white;
+    background-color: #272727 !important;
+}
+
+.form-control:focus {
+    color: white !important;
+    border: transparent !important;
+    box-shadow: none !important;
+}
+
+@import "bootstrap.min.css";
+
+.bg-secondary {
+    background-color: red;
+}

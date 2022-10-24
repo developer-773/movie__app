@@ -1,0 +1,26 @@
+
+.tags {
+    padding: 5px;
+    background-color: #000 !important;
+    color: #ffff00;
+    opacity: .8;
+    transition: all .3s ease-in-out;
+    border-radius: 5px;
+    border: 1px solid #ffff00 !important;
+}
+
+.top {
+    top: 549px;
+    right: 13px;
+    z-index: 100;
+    scroll-behavior: smooth;;
+}
+
+@include size (tablet) {
+    .top {
+        top: 555px;
+    }
+}
+
+
+

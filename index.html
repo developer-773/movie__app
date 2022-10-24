@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>KinoBUM - Watch online movies</title>
+  <link rel="icon" href="./images/logo.png">
+</head>
+<body class="body">
+  <input id="copy" type="text" class="form-control">
+  <button class="btn btn-success" onclick="copy()">Copy</button>
+  <header class="py-3 mb-3">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">
+          <img src="./images/logo.png" width="70" height="70" alt="Kinobum's logo">
+        </a>
+        <h1 class="header__title mb-0 mx-auto">Visit more... Watch more...</h1>
+        <div class="collapse navbar-collapse show mt-5 mt-md-4" id="navbarSupportedContent">
+          <form class="d-flex search-form header__form ms-md-auto">
+            <select class="form-select bg-secondary w-50 me-2 sortAllmovies">
+              <option name="high__rating" value="high">High rating</option>
+              <option name="from a to z" value="a-z">From A to Z</option>
+              <option name="low__rating" value="low">Low rating</option>
+              <option name="from z to a" value="z-a">From Z to A</option>
+              <option name="sorting by year" value="newest-year">Year (oldest to newest)</option>
+              <option name="sorting by year" value="oldest-year">Year (newest to oldest)</option>
+            </select>
+            <input class="form-control from__year w-50 me-2" type="number" placeholder="From year...">
+            <input class="form-control to__year w-50 me-2" type="number" placeholder="To year...">
+            <select  name="genres"  class="genres-select form-select me-3 bg-secondary w-50">
+              <option value="All">All</option>
+            </select>
+            <input class="form-control me-2 search-input input" type="search" placeholder="What do you want to watch?" aria-label="What do you want to watch?">
+            
+            <button class="movie__btn" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>    
+  </header>
+  
+  <main class="site-main">
+    <section>
+      <div class="container">
+        <div class="alert alert-warning alert-dismissible status mb-5" role="alert">
+          <p class="mb-0">
+            Your internet connection speed is <strong>slow</strong> or <strong>disconnected.</strong> Please refresh your page.
+          </p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <h2 class="visually-hidden">Movies list</h2>
+        <div class="d-flex">
+          
+          <button class="h-100 bg-warning border-0 rounded-2 me-5 p-2 saved" >Saved Movies</button>
+          <ul class="movies__list row list list-unstyled d-flex justify-content-center justify-content-md-between mb-0 mx-auto">
+            
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <ul class="lists">
+    </ul>
+    
+  </main>
+  
+  <footer class="bg-dark py-3">
+    <div class="container mx-auto">
+      <div class="footer__box">
+        <p class="text-center text-white mb-0">© 2022 developer_773. All rights reserved.
+        </div>
+      </div>
+    </footer>
+    
+    <!-- TEMPLATES -->
+    <template id="movies-item-template">
+      <li class="movies__item col-sm-12 col-md-6 col-lg-4 col-xl-3 movie__item mb-5 me-3 position-relative shadow-lg rounded p-0">
+        <button class="btn btn-danger bookmark__delete">Delete</button>
+        <div class="movie h-100">
+          <img class="movie__img movie__cover" src="https://picsum.photos/300/170" width="314" height="176" alt="rasm">
+          <div class="movie__txt-box p-3 position-absolute bottom-0 w-100">
+            <h3 class="movie__title fw-normal h4 card-title text-white">Movie</h3>
+            <div class="movie__txt-center d-flex justify-content-between mb-3 small">
+              <span class="movie__rating text-secondary d-inline-flex">7.7</span>
+              <span class="movie__year movie__time text-secondary d-inline-flex ">
+                <time class="" datetime="">1.12</time>
+              </span>
+              <span class="movie__duration text-secondary d-inline-flex">1.24</span>
+            </div>
+            <p class="movie__categories movie__genre text-secondary ">Action</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="js-more-info-button movie__info movie__btn d-inline-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#more-info-modal" data-="">More info</button>
+              <button class="bookmarkButton">
+                
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </template>
+    
+    
+    <!-- MODALS -->
+    <div class="movie-info-modal modal fade" id="more-info-modal">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header p-4 pb-0  border-bottom-0">
+            <h3 class="movie-info-modal__title modal__title fs-5 text-white"></h3>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex justify-content-between p-4 pb-5">
+            <div class="iframe__box">
+              <iframe class="movie-info-modal__iframe d-block w-100 border-0 rounded" src="https://www.youtube-nocookie.com/embed/j51ae5KM7N0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="modal__content-right">
+              <div class="d-flex flex-wrap small">
+                <span class="d-flex align-items-center me-3">
+                  <span class="movie-info-modal__rating movie__rating text-secondary"></span>
+                </span>
+                <span class="d-flex align-items-center me-3">
+                  <span class="movie-info-modal__year movie__time text-secondary"></span>
+                  
+                </span>
+                <span class="d-flex align-items-center ">
+                  <span class="movie-info-modal__duration movie__duration text-secondary"></span>
+                </span>
+              </div>
+              <p class="movie-info-modal__categories text-secondary movie__genre"></p>
+              <p class="movie-info-modal__summary movie__description text-secondary mb-3"></p>
+              <div class="mt-auto">
+                <a class="movie-info-modal__imdb-link movie__link-imdb" href="#" target="blank">Show on IMDb</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <!--  -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js
+      "></script> -->
+      <script src="./bootstrap.bundle.min.js"></script>
+      <script src="./normalizemovieslist.js"></script>
+      <script src="./main.js"></script>
+    </body>
+    </html>
+    
